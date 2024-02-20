@@ -15,5 +15,20 @@ pipeline {
                 bat "dotnet build --configuration Release"
             }
         }
+
+        stage("publish") {
+            steps {
+                echo "Deploy to staging server"
+                bat "dotnet publish --configuration Release -p:PublishDir=.\\publish"
+            }
+        }
+
+        stage("deplay") {
+            steps {
+                echo "Copy files"
+                bat "xcopy .\\publish E:\\INetPub\\JekninsInnoDay\\STAE /E /H /C /I"
+                bat "dir E:\\INetPub\\JekninsInnoDay\\STAE"
+            }
+        }
     }
 }
