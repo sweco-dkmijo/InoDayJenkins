@@ -45,7 +45,7 @@ pipeline {
         stage('Publish') {
             steps {
                 // Publish the app to an output directory
-                bat 'dotnet publish /p:DeployOnBuild=true /p:PublishProfile=IISProfile /p:Configuration=Release'
+                bat 'dotnet publish /p:PublishProfile=IISProfile /p:Configuration=Release'
             }
         }
 
