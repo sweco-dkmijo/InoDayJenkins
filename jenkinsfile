@@ -24,11 +24,17 @@ pipeline {
             }
         }
 
-        stage("deplay") {
+        stage("deploy") {
             steps {
                 echo "Copy files"
                 bat "xcopy .\\publish E:\\INetPub\\JekninsInnoDay\\STAE /E /H /C /I /Y"
                 bat "dir E:\\INetPub\\JekninsInnoDay\\STAE"
+            }
+        }
+
+        stage("run") {
+            steps {
+                bat "E:\\INetPub\\JekninsInnoDay\\STAE\\InoDayJenkins.exe"
             }
         }
     }
