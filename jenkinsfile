@@ -44,7 +44,7 @@ pipeline {
       steps {
         script {
           echo "Deploying files to deploy target"
-          bat "move out/* E:/INetPub/JekninsInnoDay/FRWE"
+          bat "move out/* E:/INetPub/JekninsInnoDay/FRWE/"
           }
         }
     }
