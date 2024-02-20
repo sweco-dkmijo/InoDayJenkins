@@ -20,14 +20,14 @@ pipeline {
             steps {
                 script {
                     def branchName = env.GIT_BRANCH.replaceAll('/', '_') // Replaces '/' in branch name with '_' to create a valid directory name
-                    def targetDirectory = "E:\\Build\\${branchName}"
+                    def targetDirectory = "E:\\INetPub\\JekninsInnoDay\\${branchName}"
 
                     echo "Removing previous build folder"
                     bat "if exist ${targetDirectory} rd /s /q ${targetDirectory}" // Remove the target directory if it exists
             
                     echo "Copying build to another folder"
                     bat "if not exist ${targetDirectory} mkdir ${targetDirectory}" // Create the target directory if it doesn't exist
-                    bat "Xcopy %WORKSPACE%\\Publish\\RenoWeb.Web ${targetDirectory} /E /H /C /I"
+                    bat "Xcopy %WORKSPACE%\\Publish\\JekninsInnoDay ${targetDirectory} /E /H /C /I"
             
                     // Update the target directory for the 'Move Files to Staging Server' stage
                     env.TARGET_DIRECTORY = targetDirectory
