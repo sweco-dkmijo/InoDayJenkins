@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage("Restoring-NuGet-packages") {
+        stage("nuget") {
             echo "Restoring NuGet packages"
-                bat "dotnet restore"
+            bat "dotnet restore"
         }
 
-        stage("Build") {
+        stage("build") {
             steps {
                 echo "Build solution"
                 bat "dotnet build --configuration Release"
