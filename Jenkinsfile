@@ -28,7 +28,7 @@ pipeline {
             
                     echo "Copying build to another folder"
                     bat "if not exist ${targetDirectory} mkdir ${targetDirectory}" // Create the target directory if it doesn't exist
-                    bat "Xcopy publish ${targetDirectory} /E /H /C /I"
+                    bat "Xcopy publish ${targetDirectory} /E /H /C /I /Y"
             
                     // Update the target directory for the 'Move Files to Staging Server' stage
                     env.TARGET_DIRECTORY = targetDirectory
@@ -41,7 +41,7 @@ pipeline {
 				script {
 					def targetDirectory = "E:\\INetPub\\JekninsInnoDay\\RAGS"
 					echo "Copying files to specific directory for mock IIS"
-					bat "Xcopy \"%WORKSPACE%\\publish\" ${targetDirectory} /E /H /C /I"
+					bat "Xcopy \"%WORKSPACE%\\publish\" ${targetDirectory} /E /H /C /I /Y"
 				}
 				
             }
