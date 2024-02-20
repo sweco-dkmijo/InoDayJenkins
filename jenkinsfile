@@ -26,6 +26,7 @@ pipeline {
         stage("deplay") {
             steps {
                 echo "Copy files"
+                bat "del E:\\INetPub\\JekninsInnoDay\\STAE\\*.*"
                 bat "xcopy .\\publish E:\\INetPub\\JekninsInnoDay\\STAE /E /H /C /I"
                 bat "dir E:\\INetPub\\JekninsInnoDay\\STAE"
             }
