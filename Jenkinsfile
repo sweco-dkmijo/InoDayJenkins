@@ -2,6 +2,13 @@ pipeline {
     agent any
     
     stages {
+        stage('Clean up') {
+            steps {
+                echo "Cleaning up..."
+                cleanws()
+            }
+        }
+        
         stage('Restore NuGet Packages') {
             steps {
                 echo "Restoring NuGet packages"
