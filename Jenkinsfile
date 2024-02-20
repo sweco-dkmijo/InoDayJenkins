@@ -12,7 +12,7 @@ pipeline {
         stage('Build Api') {
             steps {
                 echo "Building Api..."
-                bat "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\msbuild.exe\" \"InoDayJenkins.sln\" /p:DeployOnBuild=true"
+                bat "dotnet build \"InoDayJenkins.sln\""
             }
         }
         
