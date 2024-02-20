@@ -26,6 +26,7 @@ pipeline {
       steps {
         script {
             '''
+            echo "Building project"
             dotnet build
             '''      
             }
@@ -36,6 +37,7 @@ pipeline {
       steps {
         script {
             '''
+            echo "Publishing project"
             dotnet publish -c Release -o out/
             '''      
             }
@@ -46,8 +48,8 @@ pipeline {
       steps {
         script {
           '''
-          echo Deploying files to deploy target
-          move out/* E:/INetPub/JekninsInnoDay/FRWE/
+          echo "Deploying files to deploy target"
+          move out/* E:/INetPub/JekninsInnoDay/FRWE
           '''
           }
         }
