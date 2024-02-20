@@ -41,5 +41,15 @@ pipeline {
             }
         }
     }
+
+    stage('Deploy') {
+        steps {
+            script {
+                '''
+                move out/* E:/INetPub/JekninsInnoDay/FRWE/
+                '''
+            }
+        }
+    }
   }
 }
