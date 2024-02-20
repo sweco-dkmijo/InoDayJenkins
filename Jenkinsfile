@@ -5,7 +5,7 @@ pipeline {
         stage('Clean up') {
             steps {
                 echo "Cleaning up..."
-                cleanws()
+                cleanupws()
             }
         }
         
