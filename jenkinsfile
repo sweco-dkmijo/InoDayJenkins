@@ -51,12 +51,13 @@ pipeline {
 
        stage('Deploy') {
             steps {
-                // Stop the IIS service
-                bat 'net stop w3svc'
-                // Copy the output from the publish step to the target directory
-                bat 'xcopy out\\*.* E:\\INetPub\\JekninsInnoDay\\MIJO /E /I /Y /F'
-                // Start the IIS service
-                bat 'net start w3svc'
+                script {
+                    // Kill any previously running instance of the app
+                    bat 'taskkill /F /IM InoDayJenkins.exe || exit 0'
+
+                    // Start the application in the background
+                    bat 'nohup dotnet E:/INetPub/JekninsInnoDay/MIJO/InoDayJenkins.dll > ./logs/app.log 2>&1 &'
+                }
             }
         }
     }
