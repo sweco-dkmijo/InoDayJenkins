@@ -1,3 +1,4 @@
+using InoDayJenkins.Classes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InoDayJenkins.Controllers
@@ -9,13 +10,16 @@ namespace InoDayJenkins.Controllers
 		private static readonly string[] Summaries = new[]
 		{
 		"Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-	};
+		};
 
 		private readonly ILogger<WeatherForecastController> _logger;
 
-		public WeatherForecastController(ILogger<WeatherForecastController> logger)
+		private BusinessLogic _logic;
+
+		public WeatherForecastController(ILogger<WeatherForecastController> logger, BusinessLogic logic)
 		{
 			_logger = logger;
+			_logic = logic;
 		}
 
 		[HttpGet(Name = "GetWeatherForecast")]
