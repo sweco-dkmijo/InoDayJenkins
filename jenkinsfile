@@ -8,7 +8,7 @@ pipeline {
                 bat "dir"
                 bat "dotnet restore"
                 echo "Build solution"
-                bat "'dotnet build --configuration Release'"
+                bat "dotnet build --configuration Release"
             }
         }
     }
