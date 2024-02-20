@@ -25,18 +25,21 @@ pipeline {
     stage('Build') {
       steps {
         script {
-         '''
-         dotnet build
-         '''      
+            '''
+            dotnet build
+            '''      
+            }
         }
     }
 
     stage('Publish') {
       steps {
         script {
-         '''
-         dotnet publish -o out/
-         '''      
+            '''
+            dotnet publish -o out/
+            '''      
+            }
         }
     }
+  }
 }
