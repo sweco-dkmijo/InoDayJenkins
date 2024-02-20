@@ -37,10 +37,12 @@ pipeline {
         }
 
         stage('Copy Build to Specific Directory for Develop Branch') {
-        steps {
-				def targetDirectory = "E:\\INetPub\\JekninsInnoDay\\RAGS"
-                echo "Copying files to specific directory for mock IIS"
-				bat "Xcopy \"%WORKSPACE%\\publish\" ${targetDirectory} /E /H /C /I"
+			steps {
+				script {
+					def targetDirectory = "E:\\INetPub\\JekninsInnoDay\\RAGS"
+					echo "Copying files to specific directory for mock IIS"
+					bat "Xcopy \"%WORKSPACE%\\publish\" ${targetDirectory} /E /H /C /I"
+				}
 				
             }
         }        
