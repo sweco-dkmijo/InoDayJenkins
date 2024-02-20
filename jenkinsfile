@@ -50,15 +50,11 @@ pipeline {
         }
 
        stage('Deploy') {
-            when {
-                // Condition to determine if deploy should run, e.g., only on 'main' branch:
-                branch 'release'
-            }
             steps {
                 // Stop the IIS service
                 bat 'net stop w3svc'
                 // Copy the output from the publish step to the target directory
-                bat 'xcopy out\\*.* E:\\INetPub\\NgDPMeMoService /E /I /Y /F'
+                bat 'xcopy out\\*.* E:\\INetPub\\JekninsInnoDay\\MIJO /E /I /Y /F'
                 // Start the IIS service
                 bat 'net start w3svc'
             }
