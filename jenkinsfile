@@ -58,7 +58,7 @@ pipeline {
 					bat 'taskkill /F /IM InoDayJenkins.exe || exit 0'
 
 					// Start the application in the background
-					bat 'start /min dotnet run E:/INetPub/JekninsInnoDay/MIJO/InoDayJenkins.dll'
+					bat 'start /B dotnet run E:/INetPub/JekninsInnoDay/MIJO/InoDayJenkins.dll'
 				}
             }
         }
