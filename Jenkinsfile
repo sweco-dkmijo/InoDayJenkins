@@ -13,7 +13,7 @@ pipeline {
         stage('Build InoDayJenkins') {
             steps {
                 echo "Building RenoWeb Office"
-                bat "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\dotnetbuild.exe\" \"InoDayJenkins.sln\" /p:DeployOnBuild=true /p:PublishProfile=FolderProfile /p:PublishProfileRootFolder=\"%WORKSPACE%\\Properties\\PublishProfiles\""
+                bat "dotnet build \"InoDayJenkins.sln\" /p:DeployOnBuild=true /p:PublishProfile=FolderProfile /p:PublishProfileRootFolder=\"%WORKSPACE%\\Properties\\PublishProfiles\""
             }
         }
         
