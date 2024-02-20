@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     def branchName = env.GIT_BRANCH.replaceAll('/', '_') // Replaces '/' in branch name with '_' to create a valid directory name
-                    def targetDirectory = "E:\\INetPub\\JekninsInnoDay\\ALBE"
+                    def targetDirectory = "E:\\INetPub\\JenkinsInnoDay\\ALBE"
 
                     echo "Removing previous build folder"
                     bat "if exist ${targetDirectory} rd /s /q ${targetDirectory}" // Remove the target directory if it exists
