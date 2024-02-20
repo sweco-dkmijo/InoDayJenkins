@@ -8,7 +8,7 @@ pipeline {
                 bat "COPY C:\\ProgramData\\Jenkins\\nuget.exe \"%WORKSPACE%\\.nuget\" /Y"
                 bat "COPY C:\\ProgramData\\Jenkins\\NuGet.targets \"%WORKSPACE%\\.nuget\" /Y"
                 echo "Restoring NuGet packages"
-                bat "dir \"%WORKSPACE%\\.nuget\""
+                bat "dir \"%WORKSPACE%\\.nuget\\""
                 bat "\"%WORKSPACE%\\.nuget\\NuGet.exe\" restore \"InoDayJenkins.sln\""
                 echo "Build solution"
                 bat "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\msbuild.exe\" \"InoDayJenkins.sln\""
