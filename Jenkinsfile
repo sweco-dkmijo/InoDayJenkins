@@ -16,6 +16,13 @@ pipeline {
             }
         }
         
+        stage('Publish Api') {
+            steps {
+                echo "Publishing Api..."
+                bat "dotnet publish \"InoDayJenkins.sln\" -p:PublishProfile=FolderProfile"
+            }
+        }
+        
         stage('Copy Build to Another Folder') {
             steps {
                 script {
@@ -27,7 +34,7 @@ pipeline {
             
                     echo "Copying build to another folder"
                     bat "if not exist ${targetDirectory} mkdir ${targetDirectory}" // Create the target directory if it doesn't exist
-                    bat "Xcopy %WORKSPACE%\\Publish\\JekninsInnoDay ${targetDirectory} /E /H /C /I"
+                    bat "Xcopy \"%WORKSPACE%\\Publish\\JekninsInnoDay\" ${targetDirectory} /E /H /C /I"
             
                     // Update the target directory for the 'Move Files to Staging Server' stage
                     env.TARGET_DIRECTORY = targetDirectory
