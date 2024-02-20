@@ -4,6 +4,8 @@ pipeline {
     stages {
         stage("build") {
             steps {
+                echo "Restoring NuGet packages"
+                bat "\"%WORKSPACE%\\.nuget\\NuGet.exe\" restore \"InoDayJenkins.sln\""
                 echo "Build solution"
                 bat "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\msbuild.exe\" \"InoDayJenkins.sln\""
             }
