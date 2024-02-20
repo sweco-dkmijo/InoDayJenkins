@@ -51,13 +51,15 @@ pipeline {
 
        stage('Deploy') {
             steps {
-                script {
-                    // Kill any previously running instance of the app
-                    bat 'taskkill /F /IM InoDayJenkins.exe || exit 0'
+                // Copy the output from the publish step to the target directory
+                bat 'xcopy out\\*.* E:\\INetPub\\JekninsInnoDay\\MIJO /E /I /Y /F'
+				script {
+					// Kill any previously running instance of the app
+					bat 'taskkill /F /IM InoDayJenkins.exe || exit 0'
 
-                    // Start the application in the background
-                    bat 'nohup dotnet E:/INetPub/JekninsInnoDay/MIJO/InoDayJenkins.dll > ./logs/app.log 2>&1 &'
-                }
+					// Start the application in the background
+					bat 'nohup E:/INetPub/JekninsInnoDay/MIJO/InoDayJenkins.exe > ./logs/app.log 2>&1 &'
+				}
             }
         }
     }
