@@ -19,6 +19,7 @@ pipeline {
         stage("publish") {
             steps {
                 echo "Deploy to staging server"
+                bat "rmdir .\\publish /Y"
                 bat "dotnet publish --configuration Release -p:PublishDir=.\\publish"
             }
         }
@@ -26,7 +27,6 @@ pipeline {
         stage("deplay") {
             steps {
                 echo "Copy files"
-                bat "rmdir .\\publish /Y"
                 bat "xcopy .\\publish E:\\INetPub\\JekninsInnoDay\\STAE /E /H /C /I /Y"
                 bat "dir E:\\INetPub\\JekninsInnoDay\\STAE"
             }
