@@ -25,10 +25,8 @@ pipeline {
     stage('Build') {
       steps {
         script {
-            '''
             echo "Building project"
-            dotnet build
-            '''      
+            bat "dotnet build"
             }
         }
     }
@@ -36,10 +34,8 @@ pipeline {
     stage('Publish') {
       steps {
         script {
-            '''
             echo "Publishing project"
-            dotnet publish -c Release -o out/
-            '''      
+            bat "dotnet publish -c Release -o out/"
             }
         }
     }
@@ -47,10 +43,8 @@ pipeline {
     stage('Deploy') {
       steps {
         script {
-          '''
           echo "Deploying files to deploy target"
-          move out/* E:/INetPub/JekninsInnoDay/FRWE
-          '''
+          bat "move out/* E:/INetPub/JekninsInnoDay/FRWE"
           }
         }
     }
