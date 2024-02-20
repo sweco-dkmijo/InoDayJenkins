@@ -5,8 +5,8 @@ pipeline {
         stage("build") {
             steps {
                 echo "Copying new NuGet exe and config"
-                bat "COPY C:\\ProgramData\\Jenkins\\nuget.exe %WORKSPACE%\\.nuget /Y"
-                bat "COPY C:\\ProgramData\\Jenkins\\NuGet.targets %WORKSPACE%\\.nuget /Y"
+                bat "COPY C:\\ProgramData\\Jenkins\\nuget.exe \"%WORKSPACE%\\.nuget\" /Y"
+                bat "COPY C:\\ProgramData\\Jenkins\\NuGet.targets \"%WORKSPACE%\\.nuget\" /Y"
                 echo "Restoring NuGet packages"
                 bat "\"%WORKSPACE%\\.nuget\\NuGet.exe\" restore \"InoDayJenkins.sln\""
                 echo "Build solution"
