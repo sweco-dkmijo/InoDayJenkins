@@ -36,19 +36,20 @@ pipeline {
       steps {
         script {
             '''
-            dotnet publish -o out/
+            dotnet publish -c Release -o out/
             '''      
             }
         }
     }
 
     stage('Deploy') {
-        steps {
-            script {
-                '''
-                move out/* E:/INetPub/JekninsInnoDay/FRWE/
-                '''
-            }
+      steps {
+        script {
+          '''
+          echo Deploying files to deploy target
+          move out/* E:/INetPub/JekninsInnoDay/FRWE/
+          '''
+          }
         }
     }
   }
