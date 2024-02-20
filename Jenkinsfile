@@ -5,7 +5,7 @@ pipeline {
         stage('Clean up') {
             steps {
                 echo "Cleaning up..."
-                cleanupws()
+                cleanWs()
             }
         }
         
@@ -47,6 +47,18 @@ pipeline {
                     env.TARGET_DIRECTORY = targetDirectory
                 }
             }
+        }
+    }
+	
+	post {
+        // Clean after build
+        always {
+            cleanWs(cleanWhenNotBuilt: false,
+                    deleteDirs: true,
+                    disableDeferredWipeout: true,
+                    notFailBuild: true,
+                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+                               [pattern: '.propsfile', type: 'EXCLUDE']])
         }
     }
 }
