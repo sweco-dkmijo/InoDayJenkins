@@ -44,9 +44,6 @@ pipeline {
                 echo "Copying files to specific directory for develop branch"
                 bat "echo y | \"C:\\Program Files\\PuTTY\\pscp.exe\" -scp -r -i \"C:\\Program Files\\Jenkins\\ppk.ppk\" -l gdev\\mijo %WORKSPACE%\\Publish\\RenoWeb.Web\\* gdevrenostage01.gdev.local:\"E:\\InetPub\\renoweb.dk\\office\\test-develop\""
             }
-			echo {
-				echo "Where to place?"
-			}
         }        
 
     }
