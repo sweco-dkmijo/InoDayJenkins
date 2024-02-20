@@ -17,7 +17,7 @@ pipeline {
       steps {
         bat label: 'Nuget Restore', 
         script: '''
-          dotnet nuget restore
+          dotnet restore
         ''' 
       }
     }
