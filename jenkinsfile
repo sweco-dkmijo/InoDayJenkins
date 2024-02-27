@@ -9,8 +9,8 @@ pipeline {
     
     stage('Git Checkout'){
         steps {
-            git branch: 'frwe', credentialsId: 'sweco-dkmijo', url: 'https://github.com/sweco-dkmijo/InoDayJenkins'
-        }
+            checkout scm
+		}
     }
     
     stage('Nuget Restore') {
