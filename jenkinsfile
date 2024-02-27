@@ -9,10 +9,8 @@ pipeline {
     
     stage('Nuget Restore') {
       steps {
-        bat label: 'Nuget Restore', 
-        script: '''
-          dotnet restore
-        ''' 
+          echo 'Restore'
+          bat 'dotnet restore'
       }
     }
 
