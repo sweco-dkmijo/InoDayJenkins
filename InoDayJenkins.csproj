@@ -4,9 +4,20 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>    
+
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="InoDayJenkinsTest\**" />
+    <Content Remove="InoDayJenkinsTest\**" />
+    <EmbeddedResource Remove="InoDayJenkinsTest\**" />
+    <None Remove="InoDayJenkinsTest\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
