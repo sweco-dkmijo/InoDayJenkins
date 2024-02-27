@@ -28,7 +28,7 @@ pipeline {
                 echo "Testing Api..."
                 bat "dotnet test -l:trx \"InoDayJenkins.sln\" || true"
               }
-            }
+        }
 
         stage('Publish Api') {
             steps {
