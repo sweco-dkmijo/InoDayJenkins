@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage("clean workspace") {
-            steps {
-                // Clean before build
-                cleanWs()
-            }
-        }
+        // stage("clean workspace") {
+        //     steps {
+        //         // Clean before build
+        //         cleanWs()
+        //     }
+        // }
 
         stage("nuget") {
             steps {
@@ -51,6 +51,12 @@ pipeline {
                 echo "Task kill and start new process"
                 bat "taskkill /IM InoDayJenkins.exe /F"
                 bat "start /min E:\\INetPub\\JekninsInnoDay\\STAE\\InoDayJenkins.exe"
+            }
+        }
+
+        stage("clean workspace") {
+            steps {
+                cleanWs()
             }
         }
     }
