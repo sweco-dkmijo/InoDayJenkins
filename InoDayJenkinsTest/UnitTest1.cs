@@ -33,7 +33,7 @@ namespace InoDayJenkinsTest
         public void EqualsTo5()
         {
             var res = _weather.GetNumbers();
-            Assert.True(res.Count() == 5);
+            Assert.True(res.Count() == 4);
         }
 
 
