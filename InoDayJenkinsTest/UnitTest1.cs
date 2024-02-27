@@ -1,3 +1,5 @@
+using InoDayJenkins;
+
 namespace InoDayJenkinsTest
 {
 	public class UnitTest1
@@ -6,6 +8,17 @@ namespace InoDayJenkinsTest
 		public void Test1()
 		{
 			Assert.True(true);
+		}
+
+		[Fact]
+		public void Test2()
+		{
+			float c = 20;
+			float f = 68;
+
+			float cConvertedToF = TemperatureConverter.ConvertToFerenhite(c);
+
+			Assert.True(cConvertedToF.Equals(f));
 		}
 	}
 }
