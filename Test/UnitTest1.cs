@@ -15,13 +15,25 @@ namespace InnoDayJenkinsTest
 
         private RestClient client;
 
+        private PrimeService _primeService;
+
         [SetUp]
         public void Setup()
         {
             client = new RestClient(_baseUrl);
+            _primeService = new PrimeService();
         }
 
         [Test]
+        public void IsPrime_InputIs1_ReturnFalse()
+        {
+            var result = _primeService.IsPrime(1);
+
+            result.Should().BeFalse("1 should not be prime");
+            Assert.Pass();
+        }
+
+        //[Test]
         public void Test1()
         {
             RestRequest restRequest = new RestRequest(_baseUrl + "WeatherForecast", Method.Get);
@@ -41,6 +53,18 @@ namespace InnoDayJenkinsTest
         public void CleanUp()
         {
             client.Dispose();
+        }
+
+        class PrimeService
+        {
+            public bool IsPrime(int candidate)
+            {
+                if (candidate == 1)
+                {
+                    return false;
+                }
+                throw new NotImplementedException("Please create a test first.");
+            }
         }
     }
 }
