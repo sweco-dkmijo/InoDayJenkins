@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     options {
         skipDefaultCheckout true
     }
@@ -59,8 +59,14 @@ pipeline {
         stage("run") {
             steps {
                 echo "Task kill and start new process"
-                bat "taskkill /IM InoDayJenkins.exe /F /fi \"memusage gt 2\""
+                // bat "taskkill /IM InoDayJenkins.exe /F /fi \"memusage gt 2\""
                 bat "start /min E:\\INetPub\\JekninsInnoDay\\STAE\\InoDayJenkins.exe"
+            }
+        }
+
+        stage("check webapi") {
+            steps {
+                bat "curl https://localhost:5468/swagger/index.html"
             }
         }
     }
