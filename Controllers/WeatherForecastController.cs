@@ -16,7 +16,9 @@ namespace InoDayJenkins.Controllers
 
 		private BusinessLogic _logic;
 
-		public WeatherForecastController(ILogger<WeatherForecastController> logger, BusinessLogic logic)
+		public WeatherForecastController() { }
+
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, BusinessLogic logic)
 		{
 			_logger = logger;
 			_logic = logic;
@@ -33,5 +35,26 @@ namespace InoDayJenkins.Controllers
 			})
 			.ToArray();
 		}
-	}
+
+        [HttpPost(Name = "IsPrimeNumber")]
+        public bool IsPrimeNumber(int number)
+        {
+            if (number == 0 || number == 1)
+            {
+                return false;
+            }
+            else
+            {
+                for (int a = 2; a <= number / 2; a++)
+                {
+                    if (number % a == 0)
+                    {
+                        return false;
+                    }
+
+                }
+                return true;
+            }
+        }
+    }
 }

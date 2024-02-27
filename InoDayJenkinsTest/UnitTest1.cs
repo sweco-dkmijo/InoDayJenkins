@@ -1,4 +1,5 @@
 using InoDayJenkins.Classes;
+using InoDayJenkins.Controllers;
 
 namespace InoDayJenkinsTest
 {
@@ -14,20 +15,24 @@ namespace InoDayJenkinsTest
 		public void IsPrime_ReturnsCorrectResults()
 		{
 			// Arrange
-			var logic = new BusinessLogic();
-
-			var candidates = new List<int>() {
-			1,
-			2,
-			3,
-			4,
-			5,
-			6,
-			7,
-			8,
-			9
-		};
-			var results = new List<bool>();
+			var controller = new WeatherForecastController();
+            // Act
+            var candidates = new List<int>() {
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+        };
+            var results = new List<bool>();
+            foreach (var candidate in candidates)
+             results.Add(controller.IsPrimeNumber(candidate));
+            
+			
 			var truth = new List<bool>() {
 			false,
 			true,
@@ -40,10 +45,6 @@ namespace InoDayJenkinsTest
 			false
 //2, 3, 5, 7,
         };
-
-			// Act
-			for (int i = 0; i < candidates.Count(); i++)
-				results.Add(logic.isPrime(candidates[i]));
 
 			// Assert
 			for (int i = 0; i < results.Count(); i++)
