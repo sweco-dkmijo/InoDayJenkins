@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    
+    stages {
+        
+        stage('Restore NuGet Packages') {
+            steps {
+                echo "Restoring NuGet packages"
+                bat "dotnet restore \"InoDayJenkins.sln\""
+            }
+        }
+        
+        stage('Build') {
+      steps {
+            echo "Building project"
+            bat "dotnet build"
+        }
+    }
+
+	stage('Test') {
+		steps {
+			echo "Testing project"
+			bat "dotnet test"
+		}
+	}
+
+    stage('Publish') {
+      steps {
+            echo "Publishing project"
+            bat "dotnet publish -c Release -o out/"
+        }
+    }
+
+    stage('Deploy') {
+      steps {
+          echo "Deploying files to deploy target"
+          bat "move out\\* E:\\INetPub\\JekninsInnoDay\\RAGS\\"
+      }
+    }  
+
+    }
+}
