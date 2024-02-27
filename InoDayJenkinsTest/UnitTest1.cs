@@ -1,16 +1,43 @@
 using InoDayJenkins.Classes;
+using InoDayJenkins.Controllers;
 
 namespace InoDayJenkinsTest
 {
 	public class UnitTest1
 	{
-		[Fact]
+        WeatherForecastController _weather = new WeatherForecastController(new BusinessLogic());
+
+        [Fact]
 		public void Test1()
 		{
 			Assert.True(true);
 		}
 
-		[Fact]
+        [Fact]
+        public void GreaterThen0()
+		{
+			//WeatherForecastController weather = new WeatherForecastController(new BusinessLogic());
+			var res = _weather.GetNumbers();
+			Assert.True(res.Count() > 0);
+		}
+
+        [Fact]
+        public void LessThen6()
+        {
+            WeatherForecastController weather = new WeatherForecastController(new BusinessLogic());
+            var res = _weather.GetNumbers();
+            Assert.True(res.Count() < 6);
+        }
+
+        [Fact]
+        public void EqualsTo5()
+        {
+            var res = _weather.GetNumbers();
+            Assert.True(res.Count() == 5);
+        }
+
+
+        [Fact]
 		public void IsPrime_ReturnsCorrectResults()
 		{
 			// Arrange

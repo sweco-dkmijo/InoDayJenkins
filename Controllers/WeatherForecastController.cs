@@ -12,13 +12,13 @@ namespace InoDayJenkins.Controllers
 		"Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 		};
 
-		private readonly ILogger<WeatherForecastController> _logger;
+		//private readonly ILogger<WeatherForecastController> _logger;
 
 		private BusinessLogic _logic;
 
-		public WeatherForecastController(ILogger<WeatherForecastController> logger, BusinessLogic logic)
+		public WeatherForecastController(/*ILogger<WeatherForecastController> logger,*/ BusinessLogic logic)
 		{
-			_logger = logger;
+			//_logger = logger;
 			_logic = logic;
 		}
 
@@ -32,6 +32,12 @@ namespace InoDayJenkins.Controllers
 				Summary = Summaries[Random.Shared.Next(Summaries.Length)]
 			})
 			.ToArray();
+		}
+
+		public IEnumerable<int> GetNumbers()
+		{
+			List<int> numbers = new List<int>() {1,2,3,4,5 };
+			return numbers;
 		}
 	}
 }
