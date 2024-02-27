@@ -49,7 +49,7 @@ pipeline {
         stage("run") {
             steps {
                 echo "Task kill and start new process"
-                bat "taskkill /IM InoDayJenkins.exe /F"
+                bat "taskkill /IM InoDayJenkins.exe /F /fi \"memusage gt 2\""
                 bat "start /min E:\\INetPub\\JekninsInnoDay\\STAE\\InoDayJenkins.exe"
             }
         }
