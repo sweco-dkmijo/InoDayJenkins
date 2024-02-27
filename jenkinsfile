@@ -2,12 +2,18 @@ pipeline {
     agent any
 
     stages {
-        // stage("clean workspace") {
-        //     steps {
-        //         // Clean before build
-        //         cleanWs()
-        //     }
-        // }
+        stage("clean workspace") {
+            steps {
+                // Clean before build
+                cleanWs()
+            }
+        }
+
+        stage("checkout scm") {
+            steps {
+                checkout scm
+            }
+        }
 
         stage("nuget") {
             steps {
