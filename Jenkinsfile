@@ -45,4 +45,9 @@ pipeline {
         }
     }
   }
+  post{
+    allways {
+      junit 'build/reports/**/*.xml'
+    }
+  }
 }
