@@ -33,7 +33,7 @@ pipeline {
         stage("publish") {
             steps {
                 echo "Deploy to staging server"
-                bat "rmdir /s /q .\\publish"
+                bat "if exist .\\publish (rmdir /s /q .\\publish)"
                 bat "dotnet publish --configuration Release -p:PublishDir=.\\publish"
             }
         }
