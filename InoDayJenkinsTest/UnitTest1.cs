@@ -14,7 +14,7 @@ namespace InoDayJenkinsTest
 		public void Test2()
 		{
 			float c = 20;
-			float f = 68;
+			float f = 78;
 
 			float cConvertedToF = TemperatureConverter.ConvertToFerenhite(c);
 
