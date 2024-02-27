@@ -7,12 +7,6 @@ pipeline {
       }
     }
     
-    stage('Git Checkout'){
-        steps {
-            git branch: 'frwe', credentialsId: 'sweco-dkmijo', url: 'https://github.com/sweco-dkmijo/InoDayJenkins'
-        }
-    }
-    
     stage('Nuget Restore') {
       steps {
         bat label: 'Nuget Restore', 
@@ -44,7 +38,7 @@ pipeline {
       steps {
         script {
           echo "Deploying files to deploy target"
-          bat "move out\\* E:\\INetPub\\JekninsInnoDay\\FRWE\\"
+          bat "move out\\* E:\\INetPub\\JekninsInnoDay\\CAHE\\"
           }
         }
     }
