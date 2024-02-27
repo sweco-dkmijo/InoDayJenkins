@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -10,10 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="InoDayJenkinsTest\**" />
+    <Content Remove="InoDayJenkinsTest\**" />
+    <EmbeddedResource Remove="InoDayJenkinsTest\**" />
+    <None Remove="InoDayJenkinsTest\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.TestPlatform" Version="17.9.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    <PackageReference Include="xunit" Version="2.5.3" />
+    <PackageReference Include="xunit" Version="2.7.0" />
   </ItemGroup>
 
 </Project>
