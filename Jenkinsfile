@@ -19,12 +19,27 @@ pipeline {
     }
 
     stage('Test') {
-      steps {
-        script {
-            echo "Testing project"
-            bat "dotnet test "
+      parallel{
+        stage('Test 1')
+        {
+          steps {
+            script {
+              echo "Testing project"
+              bat "dotnet test "
             }
         }
+        }
+        stage('Test 2'){
+          steps{
+            echo 'Pretending to do some work'
+          }
+        }
+        stage('Test 3'){
+          steps{
+            echo 'Also pretending to do some work =)'
+          }
+        }
+      }
     }
 
     stage('Publish') {
