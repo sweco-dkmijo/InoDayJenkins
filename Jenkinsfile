@@ -22,7 +22,7 @@ pipeline {
       steps {
         script {
             echo "Testing project"
-            bat "dotnet test"
+            bat "dotnet test "
             }
         }
     }
@@ -47,7 +47,7 @@ pipeline {
   }
   post{
     always {
-      junit 'build/reports/**/*.xml'
+      echo 'Halløjsa'
     }
   }
 }
