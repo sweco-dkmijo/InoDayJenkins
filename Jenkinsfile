@@ -9,6 +9,13 @@ pipeline {
             }
         }
         
+        stage('Check Out') {
+            steps {
+                echo "Checking Out..."
+                checkout scm
+            }
+        }
+        
         stage('Restore NuGet Packages') {
             steps {
                 echo "Restoring NuGet packages"
