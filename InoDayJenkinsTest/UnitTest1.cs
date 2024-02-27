@@ -17,37 +17,36 @@ namespace InoDayJenkinsTest
 			var logic = new BusinessLogic();
 
 			var candidates = new List<int>() {
-			1,
-			2,
-			3,
-			4,
-			5,
-			6,
-			7,
-			8,
-			9
-		};
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9
+			};
+
 			var results = new List<bool>();
 			var truth = new List<bool>() {
-			false,
-			true,
-			true,
-			false,
-			true,
-			false,
-			true,
-			false,
-			false
-//2, 3, 5, 7,
-        };
+				false,
+				true,
+				true,
+				false,
+				true,
+				false,
+				true,
+				false,
+				false
+	//2, 3, 5, 7,
+			};
 
 			// Act
-			for (int i = 0; i < candidates.Count(); i++)
-				results.Add(logic.isPrime(candidates[i]));
+			candidates.ForEach(t => results.Add(logic.isPrime(t)));
 
 			// Assert
-			for (int i = 0; i < results.Count(); i++)
-				Assert.Equal(truth[i], results[i]);
+			Assert.True(truth.SequenceEqual(results));
 		}
 	}
 }

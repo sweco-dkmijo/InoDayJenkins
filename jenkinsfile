@@ -31,6 +31,13 @@ pipeline {
         }
     }
 
+	stage('Test') {
+		steps {
+			echo "Testing project"
+			bat "dotnet test"
+		}
+	}
+
     stage('Publish') {
       steps {
         script {
