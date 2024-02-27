@@ -23,6 +23,13 @@ pipeline {
             }
         }
 
+        stage("test") {
+            steps {
+                echo "Run tests"
+                bat "dotnet test '.\InoDayJenkins,Tests\' "
+            }
+        }
+
         stage("publish") {
             steps {
                 echo "Deploy to staging server"
