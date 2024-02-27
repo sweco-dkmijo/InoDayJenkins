@@ -34,7 +34,7 @@ pipeline {
     stage('Test') {
         steps {
             script {
-                bat "dotnet test InoDayJenkinsTest\\InoDayJenkinsTest.csproj --logger "trx;LogFileName=results\\unit_tests.xml""
+                bat "dotnet test InoDayJenkinsTest\\InoDayJenkinsTest.csproj --logger "\trx;LogFileName=results\\unit_tests.xml"\"
             }
         }
     }
