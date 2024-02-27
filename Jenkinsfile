@@ -12,7 +12,7 @@ pipeline {
         stage('Restore NuGet Packages') {
             steps {
                 echo "Restoring NuGet packages"
-                bat "dotnet restore \"InoDayJenkins.sln\""
+                bat "dotnet restore"
             }
         }
         
