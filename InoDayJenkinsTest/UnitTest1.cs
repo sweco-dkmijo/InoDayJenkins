@@ -18,7 +18,7 @@ namespace InoDayJenkinsTest
 
 			float cConvertedToF = TemperatureConverter.ConvertToFerenhite(c);
 
-			Assert.True(cConvertedToF.Equals(f));
+			Assert.Equal(f, cConvertedToF);
 		}
 	}
 }
