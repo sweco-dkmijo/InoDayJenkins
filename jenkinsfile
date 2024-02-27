@@ -26,7 +26,7 @@ pipeline {
         stage("test") {
             steps {
                 echo "Run tests"
-                bat "dotnet test '.\\InoDayJenkins,Tests\\'"
+                bat "dotnet test .\\InoDayJenkins.Tests\\InoDayJenkins.Tests.csproj"
             }
         }
 
