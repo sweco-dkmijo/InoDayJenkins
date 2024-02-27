@@ -1,6 +1,10 @@
 pipeline {
     agent any
     
+    options {
+        skipDefaultCheckout true
+    }
+
     stages {
         stage('Clean up') {
             steps {
@@ -55,7 +59,7 @@ pipeline {
             
                     echo "Copying build to another folder"
                     bat "if not exist ${targetDirectory} mkdir ${targetDirectory}" // Create the target directory if it doesn't exist
-                    bat "Xcopy Api\\Publish ${targetDirectory} /E /H /C /I"
+                    bat "Xcopy \"\\Api\\Publish\" ${targetDirectory} /E /H /C /I"
             
                     // Update the target directory for the 'Move Files to Staging Server' stage
                     env.TARGET_DIRECTORY = targetDirectory
@@ -64,7 +68,6 @@ pipeline {
         }
     }
 	
-	/*
     post {
         // Clean after build
         always {
@@ -76,5 +79,4 @@ pipeline {
                                [pattern: '.propsfile', type: 'EXCLUDE']])
         }
     }
-    */
 }
